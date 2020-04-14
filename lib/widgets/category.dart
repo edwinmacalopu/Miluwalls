@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:miluwallpaper/bloc/provider.dart';
 import 'package:miluwallpaper/models/wallpaper.dart';
 import 'package:miluwallpaper/pages/categorytype.dart';
 class Category extends StatelessWidget {
@@ -10,6 +11,10 @@ class Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final prub=Provider.of(context);
+    print(prub.wall.length);
+    print(category.length);
+    print("LENOOOOOOOOOOOOOO");
     return GridView.builder(
      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     crossAxisCount: 2, childAspectRatio: 1.0,mainAxisSpacing: 5.0),
@@ -17,8 +22,7 @@ class Category extends StatelessWidget {
       shrinkWrap: true,
       physics: ScrollPhysics(),
       scrollDirection: Axis.vertical,
-      itemBuilder: (BuildContext context,index){
-
+      itemBuilder: (BuildContext context,index){        
         return Stack(
                   children:<Widget>[                     
             Card(

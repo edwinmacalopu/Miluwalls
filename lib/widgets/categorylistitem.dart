@@ -10,6 +10,7 @@ class CategoryListitem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+            
       List<Wallpaper> newwall=[];
       for( var i = 0; i < walls.length; i++) { 
         if(walls[i].collections.toString().contains(itemcateg)){          

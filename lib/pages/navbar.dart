@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart'; 
 import 'package:miluwallpaper/bloc/provider.dart';
 import 'package:miluwallpaper/pages/categorypage.dart';
 import 'package:miluwallpaper/pages/homewalls.dart';
@@ -10,9 +10,6 @@ class Navbar extends StatefulWidget {
   @override
   _NavbarState createState() => _NavbarState();
 }
-
-
-
 class _NavbarState extends State<Navbar> {
 int _currentIndex = 0;
  List<Widget> screens;
@@ -76,4 +73,6 @@ int _currentIndex = 0;
       _currentIndex = index;
     });
   }
+
+  
 }

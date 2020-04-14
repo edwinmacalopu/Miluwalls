@@ -1,16 +1,15 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:miluwallpaper/models/wallpaper.dart';
-//import 'package:miluwallpaper/services/api.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:miluwallpaper/services/api.dart';
 
 
 class BloC{
 
   final _controllerTheme = StreamController<bool>.broadcast();
   final _controllernavbar = StreamController<int>();
-  final _controllerwalls=BehaviorSubject<List>();
-  final _controllerCategory=BehaviorSubject<List>();
+  final _controllerwalls=StreamController<List>.broadcast();
+  final _controllerCategory=StreamController<List>.broadcast();
 
   Stream<int> get  streamnavbar => _controllernavbar.stream;
   Stream<bool> get streamTheme => _controllerTheme.stream;
@@ -33,14 +32,16 @@ class BloC{
     _controllernavbar.add(navbar);
   }
 
-  void getwalls(List<Wallpaper> wall)async{
-     //wall=await Apiwalls().getapi(context);
+  void getwalls(BuildContext context)async{
+     //wall=wallp;
+     wall=await Apiwalls().getapi(context);
     _controllerwalls.add(wall);
     
   }
 
-  void getCategory(BuildContext context)async{
-  //category=await Apiwalls().getcateogry(context);
+  void getCategory()async{
+  category=await Apiwalls().getcateogry();
+  
     _controllerCategory.add(category);
   }
   

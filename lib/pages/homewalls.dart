@@ -1,40 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:miluwallpaper/bloc/bloc.dart';
+import 'package:flutter/material.dart'; 
 import 'package:miluwallpaper/bloc/provider.dart';
-import 'package:miluwallpaper/models/wallpaper.dart';
-import 'package:miluwallpaper/services/api.dart';
+import 'package:miluwallpaper/models/wallpaper.dart'; 
 import 'package:miluwallpaper/widgets/wallpaperlist.dart';
 import 'package:miluwallpaper/utils/themes.dart';
-class HomeWalls extends StatefulWidget {
-  @override
-  _HomeWallsState createState() => _HomeWallsState();
-}
-
-class _HomeWallsState extends State<HomeWalls>with AutomaticKeepAliveClientMixin {
-  List<Wallpaper> wal=[];
-  final prueba=BloC();
-  /*@override
-  void dispose() {
-     
-    super.dispose();
-    _streamController.close();
-  }*/
-   addData()async{
-     wal=await Apiwalls().getapi();
-     print(wal.length);
-     prueba.getwalls(wal);
-   }
-  @override
-  void initState() {
-    
-    super.initState();
-    addData();
-  }
+class HomeWalls extends StatelessWidget {
+  
   Widget build(BuildContext context) {
-    super.build(context);
   final resapi=Provider.of(context);
   print("redibujando");
-//  resapi.getwalls(context);
+resapi.getwalls(context);
    print("ENTRA AL BUILD");
     return StreamBuilder(
             stream: resapi.streamTheme,
@@ -52,7 +26,7 @@ class _HomeWallsState extends State<HomeWalls>with AutomaticKeepAliveClientMixin
           ),
         body: 
         StreamBuilder(
-          stream: prueba.streamwalls,
+          stream: resapi.streamwalls,
           builder: (BuildContext context, AsyncSnapshot snapshot){
             print("llama stream HOME");
            if(snapshot.hasData){
@@ -77,8 +51,5 @@ class _HomeWallsState extends State<HomeWalls>with AutomaticKeepAliveClientMixin
     
     
   }
-
-  @override
-   
-  bool get wantKeepAlive => true;
+ 
 }
