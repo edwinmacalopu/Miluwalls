@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:miluwallpaper/bloc/bloc.dart';
-import 'package:miluwallpaper/bloc/provider.dart';
 import 'package:miluwallpaper/models/wallpaper.dart';
 import 'package:miluwallpaper/widgets/category.dart';
 import 'package:miluwallpaper/utils/themes.dart';
+import 'package:provider/provider.dart';
 class CategoryPage extends StatefulWidget {
    
   @override
@@ -17,18 +17,15 @@ class _CategoryPageState extends State<CategoryPage> {
      prueba.getCategory();
    }
   @override
-  void initState() {
-    
+  void initState() {    
     super.initState();
     addData();
   }
   Widget build(BuildContext context) {
-    final category =Provider.of(context);
-    final bool the=category.isdart;
-    print(category.wall.length);
-    return  StreamBuilder(
+    final category =Provider.of<BloC>(context); 
+         // print(category.isdart);   
+       return  StreamBuilder(
             stream: category.streamTheme,
-            initialData: false,
               builder: (context, snapshot) => Theme(
               data: snapshot.hasData && snapshot.data
             ? AppTheme.darkTheme
@@ -51,7 +48,7 @@ class _CategoryPageState extends State<CategoryPage> {
                     padding: EdgeInsets.all(10),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                      child:Category(category: catg,theme: the)
+                      child:Category(category: catg)
                      
                   );
         }else{
@@ -62,12 +59,7 @@ class _CategoryPageState extends State<CategoryPage> {
         )
           )
           
-    )
-    
-          
-    
-    
-    
+    ) 
     );
     
   }

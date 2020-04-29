@@ -5,10 +5,7 @@ import 'package:miluwallpaper/widgets/imageview.dart';
 
 class WallpaperList extends StatelessWidget {
   final List<Wallpaper> wallplist;
-
-  const WallpaperList({Key key, this.wallplist}) : super(key: key);
-  
-
+  const WallpaperList({Key key, this.wallplist}) : super(key: key); 
   @override
   Widget build(BuildContext context) {
     return Container(

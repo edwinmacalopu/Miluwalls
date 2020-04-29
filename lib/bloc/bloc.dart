@@ -8,12 +8,12 @@ class BloC{
 
   final _controllerTheme = StreamController<bool>.broadcast();
   final _controllernavbar = StreamController<int>();
-  final _controllerwalls=StreamController<List>.broadcast();
+  final _controllerwalls=StreamController<List<Wallpaper>>.broadcast();
   final _controllerCategory=StreamController<List>.broadcast();
 
   Stream<int> get  streamnavbar => _controllernavbar.stream;
   Stream<bool> get streamTheme => _controllerTheme.stream;
-  Stream<List> get streamwalls => _controllerwalls.stream;
+  Stream<List<Wallpaper>> get streamwalls => _controllerwalls.stream;
   Stream<List> get streamCategory =>_controllerCategory.stream;
   int navbar=0;
   bool isdart=false;

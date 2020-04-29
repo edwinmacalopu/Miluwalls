@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart'; 
-import 'package:miluwallpaper/bloc/provider.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:miluwallpaper/bloc/bloc.dart'; 
 import 'package:miluwallpaper/pages/categorypage.dart';
 import 'package:miluwallpaper/pages/homewalls.dart';
 import 'package:miluwallpaper/pages/settingswalls.dart';
-import 'package:miluwallpaper/utils/themes.dart'; 
+import 'package:miluwallpaper/utils/themes.dart';
+import 'package:provider/provider.dart'; 
 class Navbar extends StatefulWidget {
 
   @override
@@ -25,7 +26,7 @@ int _currentIndex = 0;
   }
 @override
   Widget build(BuildContext context) {    
-      final bloc=Provider.of(context);  
+      final bloc=Provider.of<BloC>(context); 
     return  StreamBuilder(
     stream: bloc.streamTheme,
     builder: (context,snapshot)=>Theme(

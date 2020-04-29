@@ -1,18 +1,17 @@
-import 'package:flutter/material.dart'; 
-import 'package:miluwallpaper/bloc/provider.dart';
+import 'package:flutter/material.dart';
+import 'package:miluwallpaper/bloc/bloc.dart'; 
 import 'package:miluwallpaper/models/wallpaper.dart'; 
 import 'package:miluwallpaper/widgets/wallpaperlist.dart';
 import 'package:miluwallpaper/utils/themes.dart';
+import 'package:provider/provider.dart';
 class HomeWalls extends StatelessWidget {
   
   Widget build(BuildContext context) {
-  final resapi=Provider.of(context);
-  print("redibujando");
+  final resapi=Provider.of<BloC>(context); 
 resapi.getwalls(context);
-   print("ENTRA AL BUILD");
     return StreamBuilder(
             stream: resapi.streamTheme,
-            initialData: false,
+            //initialData: false,
               builder: (context, snapshot) => Theme(
               data: snapshot.hasData && snapshot.data
             ? AppTheme.darkTheme
@@ -27,8 +26,7 @@ resapi.getwalls(context);
         body: 
         StreamBuilder(
           stream: resapi.streamwalls,
-          builder: (BuildContext context, AsyncSnapshot snapshot){
-            print("llama stream HOME");
+          builder: (BuildContext context, AsyncSnapshot snapshot){        
            if(snapshot.hasData){
              List<Wallpaper> fe=snapshot.data;
               return Container(

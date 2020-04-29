@@ -1,20 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:miluwallpaper/bloc/provider.dart';
 import 'package:miluwallpaper/models/wallpaper.dart';
 import 'package:miluwallpaper/pages/categorytype.dart';
 class Category extends StatelessWidget {
   final List<Collection> category;
-  final bool theme;
-
-  const Category({Key key, this.category, this.theme}) : super(key: key);
-
+  Category({Key key, this.category}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final prub=Provider.of(context);
-    print(prub.wall.length);
-    print(category.length);
-    print("LENOOOOOOOOOOOOOO");
     return GridView.builder(
      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     crossAxisCount: 2, childAspectRatio: 1.0,mainAxisSpacing: 5.0),
@@ -36,7 +28,7 @@ class Category extends StatelessWidget {
                      context,
                      MaterialPageRoute(
                          builder: (context) => CategoryType(
-                tipocateg: category[index].name,theme: theme,
+                tipocateg: category[index].name 
                )));
                },
                child: SizedBox(

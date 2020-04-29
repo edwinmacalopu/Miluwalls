@@ -28,8 +28,6 @@ class CategoryListitem extends StatelessWidget {
       physics: ScrollPhysics(),
       scrollDirection: Axis.vertical,
       itemBuilder: (BuildContext context,index){
-         
-        print(itemcateg);
        return  
           Card(
              elevation: 1,
@@ -83,55 +81,8 @@ class CategoryListitem extends StatelessWidget {
                ),
              ),
         ) ;
-        
-        
       },
     ));
   }
-      /*children:wallpaper.map((Wallpaper wallpapermodel) {
-          return GridTile(
-              footer: Container(
-                height: 50,
-                width: 50,
-                color: Colors.black.withOpacity(0.1),
-                /*decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.red
-                ),*/
-                child: Row(children: <Widget>[
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(wallpapermodel.name,style: TextStyle(color: Colors.white),)
-                ],),
-              ),
-              child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ImageView(
-                            imgPath: wallpapermodel.thumbnail,
-                            title: wallpapermodel.name,
-                          )));
-            },
-            child: Hero(
-              tag: wallpapermodel.thumbnail,
-              child: Container(
-                height: 20,
-                child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: CachedNetworkImage(
-                  imageUrl: wallpapermodel.thumbnail,
-                  placeholder: (context, url) => Container(
-                   color: Color(0xfff5f8fd),
-                     ),
-                fit: BoxFit.cover)),
-              ),
-            ),
-          ));
-        }).toList()),*/
-   
 
-  
 }

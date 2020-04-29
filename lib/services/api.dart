@@ -1,15 +1,15 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:miluwallpaper/bloc/provider.dart';
+import 'package:miluwallpaper/bloc/bloc.dart';
 import 'package:miluwallpaper/models/wallpaper.dart';
+import 'package:provider/provider.dart';
 
 class Apiwalls{
   
     List<Wallpaper> walls=[];
     List<Collection> categorys=[];
   Future<List> getapi(BuildContext context)async{
-    final wall=Provider.of(context); 
+    final wall=Provider.of<BloC>(context); 
     if(wall.wall.length!=0){
     return wall.wall;
     }else{
